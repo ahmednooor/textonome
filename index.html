@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="textonome" content="text based audio player built with html5 css3 and javascript">
+    <meta name="author" content="ahmed noor">
+
+    <title>// -- textonome - text based audio player</title>
+    <link rel="icon" href="icon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link id="styleSheet" rel="stylesheet" href="css/solarized-dark.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <p class="monogram">// -- textonome</p>
+            <p id="changeTheme">[SWITCH-THEME]</p>
+        </div>
+        <br>
+        <h3 class="currentlyPlaying">Currently Playing:</h3>
+        <h2 id="currentTitle">-</h2>
+
+        <p class="text-controls">
+            <span id="playPauseBtn" class="txt-btn">[PLAY]</span>
+            <span id="rvrseBtn" class="txt-btn">[T-5s]</span>
+            <span id="frwrdBtn" class="txt-btn">[T+5s]</span>
+            <span id="volMinusBtn" class="txt-btn">[V-5%]</span>
+            <span id="volPlusBtn" class="txt-btn">[V+5%]</span>
+            <br>
+            <br>
+            <span>V:</span>
+            <span id="volIndicator">-</span>
+            <span>T:</span>
+            <span id="currentDuration">-</span>
+            <span>/</span>
+            <span id="totalDuration">-</span>
+        </p>
+        <br>
+        <input id="trackProgressBar" type="range" min="0" value="0">
+        <br>
+        <audio id="audioPlayer" src="" autoplay="false" preload="auto" controls="true" contenteditable="true"></audio>
+
+        <div class="playlist">
+            <h3 class="listHeading">List:</h3>
+
+            <a href="https://geo-samples.beatport.com/lofi/8274725.LOFI.mp3" data-title="A-Lonely-Robot-Sample-Astronaut-Ape"></a>
+            <a href="https://geo-samples.beatport.com/lofi/8274723.LOFI.mp3" data-title="Nebula-Sample-Astronaut-Ape"></a>
+            <a href="http://datashat.net/music_for_programming_30-matt_kruse.mp3" data-title="music_for_programming_30-matt_kruse"></a>
+            <a href="media/iphoneRingtone.mp3" data-title="iPhone-Ringtone"></a>
+            <a href="media/gotViolin.mp3" data-title="Game-Of-Thrones-Violin-Cover"></a>
+            <a href="media/samsungRingtone.mp3" data-title="Samsung-Ringtone"></a>
+            <a href="http://datashat.net/music_for_programming_26-abstraction.mp3" data-title="music_for_programming_26-abstraction"></a>
+            <a href="http://datashat.net/music_for_programming_31-datassette.mp3" data-title="music_for_programming_31-datassette"></a>
+            <a href="http://www.dl-sounds.com/wp-content/uploads/edd/2015/10/Time-Portal-preview.mp3" data-title="Time-Portal-DL-Sounds"></a>
+            <a href="http://www.dl-sounds.com/wp-content/uploads/edd/2015/09/Space-Travel-preview.mp3" data-title="Space-Travel-DL-Sounds"></a>
+            <a href="http://www.dl-sounds.com/wp-content/uploads/edd/2016/05/Unknown-Planet-preview.mp3" data-title="Unknown-Planet-DL-Sounds"></a>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        (function () {
+            var switchThemeBtn = document.getElementById('changeTheme'),
+                styleTag = document.getElementById('styleSheet'),
+                cssFiles = [
+                    "css/solarized-dark.css",
+                    "css/terminal.css",
+                    "css/material.css"
+                ],
+                index = 0;
+            switchThemeBtn.onclick = function () {
+                if (index < (cssFiles.length - 1)) {
+                    index += 1;
+                    styleTag.href = cssFiles[index];
+                } else {
+                    index = 0;
+                    styleTag.href = cssFiles[index];
+                }
+            };
+        })();
+    </script>
+</body>
+
+</html>

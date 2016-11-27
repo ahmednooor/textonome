@@ -1,0 +1,240 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Consolas', monospace;
+    margin: 0 auto;
+    background-color: aliceblue;
+    overflow-y: scroll;
+}
+
+.container {
+    max-width: 480px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+
+.monogram {
+    color: slategray;
+    font-size: 1rem;
+    font-weight: normal;
+    float: left;
+}
+
+#changeTheme {
+    color: slategray;
+    font-size: 0.9rem;
+    font-weight: normal;
+    float: right;
+    padding: 1px 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#changeTheme:hover {
+    color: aliceblue;
+    background-color: deeppink;
+    cursor: pointer;
+}
+
+.currentlyPlaying {
+    margin: 10px auto;
+    margin-bottom: 0px;
+    color: blue;
+    font-size: 1rem;
+    max-width: 100%;
+}
+
+#currentTitle {
+    margin: 10px auto;
+    margin-top: 6px;
+    color: deeppink;
+    font-size: 1.5rem;
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.text-controls {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.text-controls span {
+    color: blue;
+    font-size: 0.9rem;
+    padding: 1px 0;
+}
+
+.text-controls span.txt-btn:hover {
+    color: aliceblue;
+    background-color: deeppink;
+    cursor: pointer;
+}
+
+#trackProgressBar {
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+}
+
+audio#audioPlayer {
+    width: 100%;
+    display: none;
+}
+
+.playlist {
+    padding: 10px 0;
+}
+
+.listHeading {
+    color: blue;
+}
+
+.playlist h3,
+.playlist a {
+    display: block;
+    font-size: 1rem;
+    margin: 10px auto;
+}
+
+.playlist a {
+    color: deeppink;
+    text-decoration: none;
+}
+
+.playlist a:hover {
+    background-color: deeppink;
+    color: aliceblue;
+}
+
+.playlist a:focus {
+    color: deeppink;
+    text-decoration: none;
+}
+
+.playlist a.activeTrack {
+    background-color: deeppink;
+    color: aliceblue;
+}
+
+input[type=range]#trackProgressBar {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    margin-top: 8px;
+}
+
+input[type=range]#trackProgressBar:focus {
+    outline: none;
+    border: none;
+}
+
+input[type=range]#trackProgressBar::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: none;
+    background: blue;
+    border-radius: 1.3px;
+    border: 10px solid blue;
+    border-right: none;
+    border-left: none;
+}
+
+input[type=range]#trackProgressBar::-webkit-slider-thumb {
+    box-shadow: none;
+    border: none;
+    height: 20px;
+    width: 10px;
+    border-radius: 0px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+
+input[type=range]#trackProgressBar:focus::-webkit-slider-runnable-track {
+    background: blue;
+}
+
+input[type=range]#trackProgressBar::-moz-range-track {
+    width: 100%;
+    height: 0px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: none;
+    background: blue;
+    border-radius: 1.3px;
+    border: 10px solid blue;
+    border-right: none;
+    border-left: none;
+}
+
+input[type=range]#trackProgressBar::-moz-range-thumb {
+    box-shadow: none;
+    border: none;
+    height: 20px;
+    width: 10px;
+    border-radius: 0px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+
+input[type=range]#trackProgressBar::-ms-track {
+    width: 100%;
+    height: 0px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: blue;
+    border-color: blue;
+    border-width: 10px 0;
+    color: transparent;
+}
+
+input[type=range]#trackProgressBar::-ms-fill-lower {
+    background: blue;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+input[type=range]#trackProgressBar::-ms-fill-upper {
+    background: blue;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+input[type=range]#trackProgressBar::-ms-thumb {
+    box-shadow: none;
+    border: none;
+    height: 20px;
+    width: 10px;
+    border-radius: 0px;
+    background: white;
+    cursor: pointer;
+    margin-top: 0px;
+}
+
+input[type=range]#trackProgressBar:focus::-ms-fill-lower {
+    background: blue;
+}
+
+input[type=range]#trackProgressBar:focus::-ms-fill-upper {
+    background: blue;
+}
