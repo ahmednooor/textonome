@@ -1,5 +1,5 @@
-// -- CAUTION -- Read the following code on your own risk!
 // -- textonome
+// -- CAUTION -- Read the following code on your own risk!
 
 window.onload = function () {
     var playlist = document.getElementsByClassName('playlist')[0],
@@ -58,12 +58,26 @@ window.onload = function () {
 
     function setTimeRange(player) {
         player.onloadeddata = function () {
+            var totalDurHour = Math.floor(Math.floor(player.duration) / 3600),
+                totalDurMin = Math.floor(Math.floor(player.duration / 60) % 60),
+                totalDurSec = Math.floor(player.duration) % 60;
             trackDuration = player.duration * 1000;
             trackProgressBar.max = trackDuration.toFixed(0);
             trackProgressBar.value = 0;
-            totalDuration.innerHTML = Math.floor(Math.floor(player.duration) / 3600) + ':' + Math.floor(Math.floor(player.duration / 60) % 60) + ':' + Math.floor(player.duration) % 60;
-            currentDuration.innerHTML = Math.floor(Math.floor(player.currentTime) / 3600) + ':' + Math.floor(Math.floor(player.currentTime / 60) % 60) + ':' + Math.floor(player.currentTime) % 60;
+            totalDuration.innerHTML = (totalDurHour < 10 ? '0' + totalDurHour : totalDurHour)
+                + ':' + (totalDurMin < 10 ? '0' + totalDurMin : totalDurMin)
+                + ':' + (totalDurSec < 10 ? '0' + totalDurSec : totalDurSec);
+            currentDuration.innerHTML = '00:00:00';
         };
+    }
+    
+    function setCurrentDurationText(elemDotMethod, divider) {
+        var currentDurHour = Math.floor(Math.floor(elemDotMethod / divider) / 3600),
+            currentDurMin = Math.floor(Math.floor((elemDotMethod / divider) / 60) % 60),
+            currentDurSec = Math.floor(elemDotMethod / divider) % 60;
+        currentDuration.innerHTML = (currentDurHour < 10 ? '0' + currentDurHour : currentDurHour)
+            + ':' + (currentDurMin < 10 ? '0' + currentDurMin : currentDurMin)
+            + ':' + (currentDurSec < 10 ? '0' + currentDurSec : currentDurSec);
     }
 
     function setActiveTrackClass(tracksArray, activeTrack) {
@@ -126,7 +140,7 @@ window.onload = function () {
 
     function updateTimeAndBar() {
         trackProgressBar.value = audioPlayer.currentTime * 1000;
-        currentDuration.innerHTML = Math.floor(Math.floor(audioPlayer.currentTime) / 3600) + ':' + Math.floor(Math.floor(audioPlayer.currentTime / 60) % 60) + ':' + Math.floor(audioPlayer.currentTime) % 60;
+        setCurrentDurationText(audioPlayer.currentTime, 1);
     }
     audioPlayer.ontimeupdate = updateTimeAndBar;
 
@@ -170,7 +184,7 @@ window.onload = function () {
 
     trackProgressBar.oninput = function () {
         audioPlayer.currentTime = trackProgressBar.value / 1000;
-        currentDuration.innerHTML = Math.floor(Math.floor(trackProgressBar.value / 1000) / 3600) + ':' + Math.floor(Math.floor((trackProgressBar.value / 1000) / 60) % 60) + ':' + Math.floor(trackProgressBar.value / 1000) % 60;
+        setCurrentDurationText(trackProgressBar.value, 1000);
     };
 
     trackProgressBar.onmousedown = function () {
